@@ -1,0 +1,32 @@
+{% import 'include/macros.twig' as macros %}
+
+### {{ property.name }}
+
+{{ property.summary | raw }}
+
+{# Method signature #}
+```php
+{{ property.visibility ~ ' ' }}{% if property.static %}{{ 'static' ~ ' ' }}{% endif %}{% if property.type and property.type is not empty %}{{ property.type ~ ' ' }}{% endif %}{{ '$' ~ property.name }}
+```
+
+{{ property.description | raw }}
+
+{% if property.static %}* Свойство является **статическим**.{% endif %}
+
+{% if property.deprecated %}* **Внимание:** свойство объявлено **устаревшим**. Это означает, что оно, вероятнее всего, будет удалено в будущих версиях.
+
+{% endif %}
+
+{% if property.tags.see is not empty or property.tags.link is not empty %}
+**См. также:**
+
+{% for see in property.tags.see %}
+* {{ see.reference }} {% if see.description %}- {{ see.description | raw }}{% endif %}
+{% endfor %}
+{% for link in property.tags.link %}
+* {{ link.link }} {% if link.description and link.description != link.link %}- {{ link.description | raw }}{% endif %}
+{% endfor %}
+
+{% endif %}{# method.tags.see || method.tags.link #}
+
+***

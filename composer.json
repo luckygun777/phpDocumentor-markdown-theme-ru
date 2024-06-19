@@ -1,0 +1,19 @@
+{
+  "name": "luckygun777/phpdocumentor-markdown-theme-ru",
+  "description": "Markdown template for phpDocumentor3 (Russian translation)",
+  "authors": [
+    {
+      "name": "Saggre",
+      "email": "sakri.koskimies@hotmail.com",
+      "role": "Original author"
+    },
+    {
+      "name": "LuckyGun",
+      "homepage": "https://github.com/luckygun777",
+      "role": "Translator"
+    }
+  ],
+  "version": "0.1.4",
+  "type": "library",
+  "license": "MIT"
+}
